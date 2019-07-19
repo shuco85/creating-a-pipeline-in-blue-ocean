@@ -1,39 +1,19 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:6-alpine'
-      args '-p 3000:3000'
+    agent none 
+    stages {
+        stage('Example Build') {
+            agent { docker 'maven:3-alpine' } 
+            steps {
+                echo 'Hello, Maven'
+                sh 'mvn --version'
+            }
+        }
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } 
+            steps {
+                echo 'Hello, JDK'
+                sh 'java -version'
+            }
+        }
     }
-
-  }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'npm install'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh './jenkins/scripts/test.sh'
-      }
-    }
-    stage('Deliver') {
-      steps {
-        sh './jenkins/scripts/deliver.sh'
-      }
-    }
-    stage('Message add') {
-      steps {
-        input '-Finished using the web site? (Click "Proceed" to continue) '
-      }
-    }
-    stage('Clear') {
-      steps {
-        sh './jenkins/scripts/kill.sh'
-      }
-    }
-  }
-  environment {
-    CI = 'true'
-  }
 }
