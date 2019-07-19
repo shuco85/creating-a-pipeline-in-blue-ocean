@@ -40,12 +40,7 @@ pipeline {
       steps {
         sh './jenkins/scripts/deliver.sh'
         input 'Finished using the web site? (Click "Proceed" to continue) '
-      }
-    }
-    stage('Message add') {
-      agent any
-      steps {
-        input '-Finished using the web site? (Click "Proceed" to continue) '
+        sh './jenkins/scripts/kill.sh'
       }
     }
     stage('Clear') {
