@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent none
   stages {
     stage('Build 6') {
       parallel {
@@ -39,6 +39,7 @@ pipeline {
       agent any
       steps {
         sh './jenkins/scripts/deliver.sh'
+        input 'Finished using the web site? (Click "Proceed" to continue) '
       }
     }
     stage('Message add') {
