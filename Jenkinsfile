@@ -17,6 +17,21 @@ pipeline {
         sh './jenkins/scripts/test.sh'
       }
     }
+    stage('Deliver') {
+      steps {
+        sh './jenkins/scripts/deliver.sh'
+      }
+    }
+    stage('Message add') {
+      steps {
+        input 'Finished using the web site? (Click "Proceed" to continue) '
+      }
+    }
+    stage('Clear') {
+      steps {
+        sh './jenkins/scripts/kill.sh'
+      }
+    }
   }
   environment {
     CI = 'true'
