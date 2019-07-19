@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Message add') {
       steps {
-        input 'Finished using the web site? (Click "Proceed" to continue) '
+        input '-Finished using the web site? (Click "Proceed" to continue) '
       }
     }
     stage('Clear') {
