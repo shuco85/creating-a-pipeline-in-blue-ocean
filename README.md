@@ -1,5 +1,9 @@
 # creating-a-pipeline-in-blue-ocean
 
+[![Build Status](https://travis-ci.com/shuco85/blue-green-cf-travis-flx.svg?token=gYdUmsZ26Je2vu7XE6un&branch=master)](https://travis-ci.com/shuco85/blue-green-cf-travis-flx)
+
+Acabo de poner el status de <i>TravisCI<i> y me siento genial
+
 This repository is for the
 [Create a Pipeline in Blue Ocean](https://jenkins.io/doc/tutorials/create-a-pipeline-in-blue-ocean/)
 tutorial in the [Jenkins User Documentation](https://jenkins.io/doc/).
